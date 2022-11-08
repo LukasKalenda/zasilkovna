@@ -1,0 +1,161 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon-zasilkovna img {
+        width: 171px;
+        height: 65px;
+        fill: none;
+        overflow: hidden;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        &::after {
+            content: 'iii';
+        }
+    }
+}
+
+main {
+    padding-top: 40px;
+
+    section {
+        display: flex;
+        flex-wrap: wrap;
+
+        article {
+            display: flex;
+            flex-direction: column;
+
+            span {
+                color: #707070;
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .wrapper {
+                display: inline-flex;
+
+                .dynamic-txt {
+                    overflow: hidden;
+                    height: 90px;
+                    line-height: 90px;
+
+                    li {
+                        color: #ba1b02;
+                        list-style: none;
+                        overflow: hidden;
+                        height: 90px;
+                        position: relative;
+                        top: 0;
+                        animation: slide 6s steps(3) infinite;
+
+                        h2 {
+                            position: relative;
+                        }
+
+                        h2::after {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            background-color: #fff;
+                            height: 100%;
+                            width: 100%;
+                            border-left: 2px solid #ba1b02;
+                            animation: typing 0.8s steps(40) infinite;
+                        }
+                    }
+                }
+            }
+        }
+
+        article>* {
+            padding-top: 30px;
+        }
+
+        div figure img {
+            max-width: 100%;
+            padding-top: 25px;
+        }
+    }
+}
+
+@keyframes typing {
+    100% {
+        left: 100%;
+        margin: 0 -35px 0 35px;
+    }
+}
+
+@keyframes slide {
+    100% {
+        top: -400px;
+    }
+}
+
+main section.box-grid {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 20px;
+
+        grid-template-areas: 
+        "vanoce vanoce vanoce zasilka1 zasilka1 sledovani sledovani sledovani sledovani"
+        "vanoce vanoce vanoce zasilka2 zasilka2 zasilka3 zasilka3 zasilka3 zasilka3";
+
+        .grid-item-1 {
+            grid-area: vanoce;
+        }
+        .grid-item-2 {
+            grid-area: zasilka1;
+        }
+        .grid-item-3 {
+            grid-area: sledovani;
+        }
+        .grid-item-4 {
+            grid-area: zasilka2;
+        }
+        .grid-item-5 {
+            grid-area: zasilka3;
+        }
+        .grid-item-6 {
+            grid-area: zasilka4;
+        }
+    }
+}
+
+h1,
+h2,
+h3 {
+    font-family: Uni Sans, roboto -apple-system, blinkmacsystemfont, Segoe UI, Helvetica Neue, arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-weight: 600;
+    line-height: 1.2;
+    font-size: calc(1.475rem + 2.7vw)
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 320px) {
+    body {
+        background-color: rgb(225, 228, 227);
+    }
+}
+
+@media (min-width: 760px) {
+    .desktop {
+        display: block;
+    }
+}

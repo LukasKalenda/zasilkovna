@@ -1,0 +1,211 @@
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .icon-zasilkovna img {
+  width: 171px;
+  height: 65px;
+  fill: none;
+  overflow: hidden;
+}
+
+header .desktop {
+  display: none;
+}
+
+header .mobile::after {
+  content: 'iii';
+}
+
+main {
+  padding-top: 40px;
+}
+
+main section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main section article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main section article span {
+  color: #707070;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+main section article .wrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+main section article .wrapper .dynamic-txt {
+  overflow: hidden;
+  height: 90px;
+  line-height: 90px;
+}
+
+main section article .wrapper .dynamic-txt li {
+  color: #ba1b02;
+  list-style: none;
+  overflow: hidden;
+  height: 90px;
+  position: relative;
+  top: 0;
+  -webkit-animation: slide 6s steps(3) infinite;
+          animation: slide 6s steps(3) infinite;
+}
+
+main section article .wrapper .dynamic-txt li h2 {
+  position: relative;
+}
+
+main section article .wrapper .dynamic-txt li h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  border-left: 2px solid #ba1b02;
+  -webkit-animation: typing 0.8s steps(40) infinite;
+          animation: typing 0.8s steps(40) infinite;
+}
+
+main section article > * {
+  padding-top: 30px;
+}
+
+main section div figure img {
+  max-width: 100%;
+  padding-top: 25px;
+}
+
+@-webkit-keyframes typing {
+  100% {
+    left: 100%;
+    margin: 0 -35px 0 35px;
+  }
+}
+
+@keyframes typing {
+  100% {
+    left: 100%;
+    margin: 0 -35px 0 35px;
+  }
+}
+
+@-webkit-keyframes slide {
+  100% {
+    top: -400px;
+  }
+}
+
+@keyframes slide {
+  100% {
+    top: -400px;
+  }
+}
+
+main section.box-grid .grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[9];
+      grid-template-columns: repeat(9, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+      grid-template-areas: "vanoce vanoce vanoce zasilka1 zasilka1 sledovani sledovani sledovani sledovani" "vanoce vanoce vanoce zasilka2 zasilka2 zasilka3 zasilka3 zasilka3 zasilka3";
+}
+
+main section.box-grid .grid-container .grid-item-1 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: vanoce;
+}
+
+main section.box-grid .grid-container .grid-item-2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: zasilka1;
+}
+
+main section.box-grid .grid-container .grid-item-3 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 4;
+  grid-area: sledovani;
+}
+
+main section.box-grid .grid-container .grid-item-4 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: zasilka2;
+}
+
+main section.box-grid .grid-container .grid-item-5 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 4;
+  grid-area: zasilka3;
+}
+
+main section.box-grid .grid-container .grid-item-6 {
+  grid-area: zasilka4;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Uni Sans, roboto -apple-system, blinkmacsystemfont, Segoe UI, Helvetica Neue, arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: calc(1.475rem + 2.7vw);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (min-width: 320px) {
+  body {
+    background-color: #e1e4e3;
+  }
+}
+
+@media (min-width: 760px) {
+  .desktop {
+    display: block;
+  }
+}
+/*# sourceMappingURL=style.css.map */
