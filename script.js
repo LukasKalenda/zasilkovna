@@ -11,15 +11,29 @@ let count = 0;
 let countOfFish = 0;
 let porovnani = true;
 let pocetKroku = 0;
+let countOfGames = 0;
 let vyreseno = false;
+let vyskaPole = 0;
+
+let vystup;
+
+// Trojrozměrné pole o 4 prvcích: posX;posY;direction
+var ryby = [[,,,]];
+
 // let data = input.toString();
 const data = input.split("\n");
-console.log(data)
+console.log(data);
 
 const pocetHer = Number(data[0]);
 
-const velikostPole = [data[1].charAt(0), data[1].charAt(2)];
-const vyskaPole = Number(velikostPole[0]);
+///////////////////////////////////////
+while (countOfGames < pocetHer) {
+ 
+  countOfGames++;
+}
+
+const velikostPole = [data[1 + vyskaPole].charAt(0), data[1 + vyskaPole].charAt(2)];
+
 
 console.log("vyska pole: "  + vyskaPole)
 console.log("Rozměry pole: " + velikostPole);
@@ -34,6 +48,7 @@ let poleRyb = function(vyska, sirka) {
     for (let k = 0; k < sirka; k++) {
       // row.push(data[j + 2][k]);
       row.push(data[j + 2].charAt(k));
+      // row.push(data[j + 2 + (vyskaPole)].charAt(k));
   }
   herniPole.push(row);
 }
@@ -44,6 +59,10 @@ console.log("Pole ryb:")
 console.log(poleRyb(velikostPole[0], velikostPole[1]));
 
 // poleCílů
+
+// Vyska pole
+vyskaPole += Number(velikostPole[0]);
+console.log("vyska pole vole: " + vyskaPole)
 //////////////////////////////////////////
 
 let cilovePole = function(vyska, sirka) {
@@ -53,12 +72,17 @@ let cilovePole = function(vyska, sirka) {
     let row = [];
 
     for (let k = 0; k < sirka; k++) {
-      row.push(data[j + 2 + vyskaPole].charAt(k));
+      row.push(data[(j + 2 + vyskaPole)].charAt(k));
+      // row.push(data[j + 2 + vyskaPole].charAt(k));
     }
     cilovePole.push(row);
   }
   return cilovePole;
 };
+
+//Vyska pole aktualizace
+// vyskaPole += (2 * Number(velikostPole[0]));
+
 // Cíle filter
 let cileFilter = cilovePole(velikostPole[0], velikostPole[1]);
 let counter = 0;
@@ -73,11 +97,10 @@ for(let y = 0; y < velikostPole[0]; y++) {
   }
 }
 }
-/////////////////////////////////
 console.log("Cílové pole:");
 console.log(cilovePole(velikostPole[0], velikostPole[1]))
-///
-var ryby = [[,,,]];
+/////////////////////////////////
+
 // Zápis souřadnic, ideálně vložit do objektu/list, vyvolat abstraktní počítání se souřadnicemi z pole vysledků
 //Ryby filter
 let rybyFilter = poleRyb(velikostPole[0], velikostPole[1]);
@@ -90,6 +113,8 @@ for(let y = 0; y < velikostPole[0] && porovnani; y++) {
 
     if (radek[x] == "x" && cileFilter[x][y] != "#") {
       console.log("NEJDE");
+      vystup += "NEJDE";
+
       porovnani = false;
     }
     if (radek[x] == "∧" || radek[x] == "∨" || radek[x] == ">" || radek[x] == "<") {
@@ -177,7 +202,7 @@ let poziceX;
 let poziceY;
 
 while(!vyreseno) {
-  for (let i = 0; i < countOfFish && cileFilter[ryby[i][0]][1] == "#"; i++) {
+  for (let i = 0; i < countOfFish && cileFilter[ryby[i][0]][1] == "#"; i++) {  // ERROR řádek
     if (i = countOfFish - 1) {
       console.log("Pocet kroku: " + pocetKroku);
       vyreseno = true;
